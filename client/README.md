@@ -1,16 +1,69 @@
-# React + Vite
+# Exam Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A MERN stack Exam Management System for managing exam timetables.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Admin
+- Admin login
+- Create exams
+- View exams
+- Edit exams
+- Delete exams
+- Required field validation
+- Start and end time validation
 
-## React Compiler
+### Student
+- Student login
+- View profile
+- View personalized exam timetable
+- Timetable filtered by academic year and section
+- Students cannot access another section's timetable
+- Handles missing profile information
+- Handles empty timetable
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+- React
+- Vite
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcryptjs
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## API Endpoints
+
+### Authentication
+- POST `/api/auth/login`
+- GET `/api/auth/me`
+
+### Admin
+- POST `/api/exams`
+- GET `/api/exams`
+- GET `/api/exams/:id`
+- PUT `/api/exams/:id`
+- DELETE `/api/exams/:id`
+
+### Student
+- GET `/api/student/profile`
+- GET `/api/student/timetable`
+
+## Student Timetable Filtering
+
+Students only see exams matching their own:
+
+- Academic Year
+- Section
+
+The filtering is performed on the backend using the authenticated student's profile.
+
+## Setup
+
+### Backend
+
+```bash
+cd server
+npm install
+npm start
